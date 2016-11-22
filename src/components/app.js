@@ -40,10 +40,32 @@ export default class App extends React.Component {
   hitMe(event) {
     event.preventDefault()
     this.store.dispatch(hitUser(this.store.getState()))
+    // debugger
+    if (this.calculateUserScore() > 21) {
+      this.lose()
+    }
   }
 
   stay(event) {
     event.preventDefault()
+
+    while (this.calculateAiScore() <= this.calculateUserScore()) {
+      this.store.dispatch(hitAI(this.store.getState()))
+    }
+
+    if (this.calculateAiScore() > 21) {
+      this.win()
+    } else {
+      this.lose()
+    }
+  }
+
+  lose() {
+    alert('You Lose!')
+  }
+
+  win() {
+    alert('You Win!')
   }
 
   render() {

@@ -74,6 +74,11 @@ export default (state={}, action) => {
         userCards: [...state.userCards, action.payload.card],
         deck: action.payload.deck
       })
+    case 'HIT_AI':
+      return Object.assign({}, state, {
+        aiCards: [...state.aiCards, action.payload.card],
+        deck: action.payload.deck
+      })
     default:
       return state
   }
