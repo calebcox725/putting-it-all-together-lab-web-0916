@@ -9,7 +9,7 @@ import AIBlackjack from '../src/components/ai_blackjack'
 
 import blackjackReducer from '../src/reducers/blackjack_reducer.js'
 
-import { fetchDeck, setAICards, setUserCards, hit } from '../src/actions/blackjack_actions'
+import { fetchDeck, setAICards, setUserCards, hitAI, hitUser } from '../src/actions/blackjack_actions'
 
 import { createStore } from '../src/store'
 
