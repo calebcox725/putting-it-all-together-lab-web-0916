@@ -40,7 +40,10 @@ export function hitAI(state) {
 
   return {
     type: 'HIT_AI',
-    payload: card
+    payload: {
+      card: card,
+      deck: deck
+    }
   }
 }
 

@@ -15,6 +15,9 @@ export default (props) => {
       <form onSubmit={props.hitMe}>
         <button type='submit'> Hit Me </button>
       </form>
+      <form onSubmit={props.stay}>
+        <button type='submit'> Stay </button>
+      </form>
     </div>
   )
 }
