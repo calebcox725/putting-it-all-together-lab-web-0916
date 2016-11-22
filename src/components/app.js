@@ -1,6 +1,7 @@
 import React from 'react'
 import UserBlackjack from './user_blackjack'
 import AIBlackjack from './ai_blackjack'
+import Winner from './winner'
 import { fetchDeck, setAICards, setUserCards, hitAI, hitUser } from '../actions/blackjack_actions'
 
 
@@ -61,16 +62,19 @@ export default class App extends React.Component {
   }
 
   lose() {
-    alert('You Lose!')
+    this.store.dispatch({type: 'LOSE'})
   }
 
   win() {
-    alert('You Win!')
+    this.store.dispatch({type: 'WIN'})
   }
 
   render() {
     return (
       <div>
+        <Winner
+          winner={this.store.getState().winner}
+        />
         <UserBlackjack
           userCards={this.store.getState().userCards}
           score={this.calculateUserScore}

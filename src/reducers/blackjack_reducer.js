@@ -57,7 +57,8 @@ export default (state={}, action) => {
           {name:"King of Spades", value: 10},
           {name:"King of Clubs", value: 10},
           {name:"King of Hearts", value: 10}
-        ]
+        ],
+        winner: null
       }
     case 'SET_AI_CARDS':
       return Object.assign({}, state, {
@@ -78,6 +79,14 @@ export default (state={}, action) => {
       return Object.assign({}, state, {
         aiCards: [...state.aiCards, action.payload.card],
         deck: action.payload.deck
+      })
+    case 'WIN':
+      return Object.assign({}, state, {
+        winner: 'Player1'
+      })
+    case 'LOSE':
+      return Object.assign({}, state, {
+        winner: 'Computer'
       })
     default:
       return state
